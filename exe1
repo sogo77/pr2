@@ -1,0 +1,26 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string input = "Рядок з текстом"; // Замініть це на ваш рядок
+        char targetLetter = 'а'; // Замініть це на букву, яку ви хочете знайти  
+        int count = 0;
+
+        for (int i = 0; i < input.Length; i++)
+        {
+            if (char.ToLower(input[i]) == char.ToLower(targetLetter))
+            {
+                count++;
+            }
+
+            if (input[i] == '.')
+            {
+                break;  
+            }
+        }
+
+        Console.WriteLine($"Буква '{targetLetter}' зустрічається {count} разів до першої точки.");
+    }
+}
