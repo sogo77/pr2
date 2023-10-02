@@ -1,0 +1,20 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string S = "Замінимо останнє входження S1.";
+        string S1 = "S1"; // Рядок який потрібно замінити
+        string S2 = "S2"; // Рядок на який замінити S1
+
+        int lastIndex = S.LastIndexOf(S1);
+
+        if (lastIndex != -1)
+        {
+            S = S.Remove(lastIndex, S1.Length).Insert(lastIndex, S2);
+        }
+
+        Console.WriteLine(S);
+    }
+}
