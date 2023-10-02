@@ -1,0 +1,23 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string sentence = "Це речення містить слова з однаковими першими буквами";
+        char[] delimiters = { ' ', '.', ',' }; 
+
+        string[] words = sentence.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+        var selectedWords = words.Where(word =>
+            word.Length > 1 && // Ігнорує однолітерні слова
+            word.ToLower().Count(c => c == word[0]) > 1 // Перевіряємо, чи перша буква зустрічається більше одного разу
+        );
+
+        foreach (var word in selectedWords)
+        {
+            Console.WriteLine(word);
+        }
+    }
+}
