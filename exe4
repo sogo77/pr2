@@ -1,0 +1,28 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        string sentence = "Це речення має бути перетворене";
+
+        char[] delimiters = { ' ', '.', ',', };  
+
+        string[] words = sentence.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (i % 2 == 1) // Перевірка на непарний номер слова
+            {
+                char[] reversedWord = words[i].ToCharArray();
+                Array.Reverse(reversedWord);
+                words[i] = new string(reversedWord);
+            }
+        }
+
+        string newSentence = string.Join(" ", words);
+
+        Console.WriteLine(newSentence);
+    }
+}
